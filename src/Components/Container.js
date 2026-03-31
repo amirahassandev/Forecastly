@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import CloudIcon from '@mui/icons-material/Cloud';
 import Button from '@mui/material/Button';
 
-export default function SimpleContainer() {
+export default function SimpleContainer({temp}) {
   return (
     <Container maxWidth="sm">
         {/* <OutlinedCard /> */}
@@ -13,7 +13,7 @@ export default function SimpleContainer() {
             <div style={{backgroundColor: "#ffffff26", width: "100%", color: "white", padding: "20px 30px", borderRadius: "15px"}}>
                 {/* Top */}
                 <div style={{display: "flex", alignItems: "end", marginRight: "20px"}} dir='rtl'>
-                    <Typography variant="h1"> الرياض </Typography>
+                    <Typography variant="h1"> مصر </Typography>
                     <Typography variant="h6" style={{marginRight: "20px"}}> مايو 29 2023 </Typography>
                 </div>
                 <hr />
@@ -25,7 +25,7 @@ export default function SimpleContainer() {
                     {/* Right */}
                     <div>
                         <div style={{display: "flex" , flexDirection: "row-reverse", alignItems: "center", gap: "15px"}}>
-                            <Typography variant="h1">38</Typography>
+                            <Typography variant="h1">{temp}</Typography>
                             <div>
                                 <CloudIcon style={{color: "black", fontSize: "35px", marginBottom: "8px"}}/>
                                 <CloudIcon style={{marginLeft: "-35px", fontSize: "35px", marginLeft: "-44px"}}/>

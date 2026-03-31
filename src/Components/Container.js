@@ -1,7 +1,6 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CloudIcon from '@mui/icons-material/Cloud';
-import Button from '@mui/material/Button';
 
 export default function SimpleContainer({temp}) {
   return (

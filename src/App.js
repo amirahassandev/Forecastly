@@ -20,14 +20,26 @@ function App() {
   const [temp, setTemp] = useState(null)
 
   useEffect(()=>{
-    axios
-      .get("https://api.openweathermap.org/data/2.5/weather?lat=30.0445&lon=31.2388&appid=0709665bc0a413c44283438e449979cc")
-      .then((response) => {
-        const responseTemp = Math.round(response.data.main.temp - 272.15)
-        setTemp(responseTemp)
-        console.log(responseTemp)
-      })
-      .catch((error) => {console.error(error)})
+    let ignore = false;
+
+    function getData(){
+        axios
+        .get("https://api.openweathermap.org/data/2.5/weather?lat=30.0445&lon=31.2388&appid=0709665bc0a413c44283438e449979cc")
+        .then((response) => {
+          if(!ignore){
+            const responseTemp = Math.round(response.data.main.temp - 272.15)
+            setTemp(responseTemp)
+            console.log(responseTemp)
+          }
+        })
+        .catch((error) => {console.error(error)})
+      }
+
+    getData()
+
+    return () => {
+      ignore = true;
+    }
   }, [])
 
   return (

@@ -3,8 +3,10 @@ import './App.css';
 import { ThemeProvider , createTheme } from "@mui/material/styles";
 import SimpleContainer from './Components/Container';
 
-import { useEffect, useState } from 'react';
-import axios from "axios"
+
+
+
+
 
 const theme = createTheme({
   typography: {
@@ -17,35 +19,12 @@ const theme = createTheme({
 
 
 function App() {
-  const [temp, setTemp] = useState(null)
 
-  useEffect(()=>{
-    let ignore = false;
-
-    function getData(){
-        axios
-        .get("https://api.openweathermap.org/data/2.5/weather?lat=30.0445&lon=31.2388&appid=0709665bc0a413c44283438e449979cc")
-        .then((response) => {
-          if(!ignore){
-            const responseTemp = Math.round(response.data.main.temp - 272.15)
-            setTemp(responseTemp)
-            console.log(responseTemp)
-          }
-        })
-        .catch((error) => {console.error(error)})
-      }
-
-    getData()
-
-    return () => {
-      ignore = true;
-    }
-  }, [])
 
   return (
     <ThemeProvider theme = {theme}>
       <div className="App">
-        <SimpleContainer temp = {temp} />
+        <SimpleContainer/>
       </div>
     </ThemeProvider>
   );

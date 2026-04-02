@@ -80,7 +80,7 @@ export default function SimpleContainer() {
         moment.locale(locale);
         setDateAndTime(moment().format('MMMM Do YYYY, h:mm:ss a'));
         i18n.changeLanguage(locale)
-    }, [locale]);
+    }, [locale, i18n]);
 
     useEffect(()=>{
         moment.locale(locale);
@@ -127,7 +127,7 @@ export default function SimpleContainer() {
         // return () => {
         //     cancelAxios()
         // }
-    }, [lonAndLat])
+    }, [lonAndLat, locale])
 
 
     return (

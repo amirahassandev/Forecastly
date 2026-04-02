@@ -62,7 +62,7 @@ export default function SimpleContainer() {
 
 
     function changeLanguageHandler(){
-        if(locale == "ar"){
+        if(locale === "ar"){
             setLocal("en")
             i18n.changeLanguage("en")
             moment.locale("en");

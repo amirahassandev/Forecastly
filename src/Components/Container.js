@@ -6,6 +6,8 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import seasons from "../assets/img/seasons.png";
+
 import { useCallback, useEffect, useState } from 'react';
 import axios from "axios";
 import moment from "moment";
@@ -79,18 +81,6 @@ export default function SimpleContainer() {
         }
     }
 
-    // useEffect(() => {
-    //     if (city === "Cairo") {
-    //         setLonAndLat({ lon: cities.Cairo.lon, lat: cities.Cairo.lat });
-    //     } else if (city === "Aswan") {
-    //         setLonAndLat({ lon: cities.Aswan.lon, lat: cities.Aswan.lat });
-    //     } else if (city === "Alex") {
-    //         setLonAndLat({ lon: cities.Alex.lon, lat: cities.Alex.lat});
-    //     } else if (city === "Sharm") {
-    //         setLonAndLat({ lon: cities.Sharm.lon, lat: cities.Sharm.lat});
-    //     }
-    // }, [city]);
-
     useEffect(() => {
         moment.locale(locale);
         setDateAndTime(moment().format('MMMM Do YYYY, h:mm:ss a'));
@@ -104,7 +94,6 @@ export default function SimpleContainer() {
 
         let ignore = false;
 
-        // setCity("Cairo")
         function getData(){
             axios
             .get(
@@ -188,7 +177,7 @@ export default function SimpleContainer() {
                 <div style={{display: "flex", justifyContent: "space-around", marginTop: "25px", alignItems: "center"}}>
                     {/* Left */}
                     {/* <img src="/img/sun.png"></img> */}
-                    <img src="/img/seasons1.png" style={{width: "30%", height: "30%", alignItems: "center"}}></img>
+                    <img src={seasons} style={{width: "30%", height: "30%", alignItems: "center"}}></img>
                     
                     {/* Left */}
                     {/* Right */}

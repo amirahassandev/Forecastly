@@ -8,7 +8,7 @@ import Select from '@mui/material/Select';
 
 import seasons from "../assets/img/seasons.png";
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from "axios";
 import moment from "moment";
 
@@ -18,16 +18,11 @@ import { useTranslation } from 'react-i18next';
 
 
 import "moment/min/locales"
-import SelectSmall from './Selection';
-// import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-
-
-
 
 
 export default function SimpleContainer() {  
 
-    let cancelAxios;
+    // let cancelAxios;
     const cities = {
         Cairo: { lat: "30.0445", lon: "31.2388" },
         Aswan: { lat: "24.0889", lon: "32.8973" },
@@ -98,11 +93,11 @@ export default function SimpleContainer() {
             axios
             .get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lonAndLat.lat}&lon=${lonAndLat.lon}&appid=0709665bc0a413c44283438e449979cc`,
-            {
-                cancelToken : new axios.CancelToken((c) => {
-                    cancelAxios = c
-                }),
-            }
+            // {
+            //     cancelToken : new axios.CancelToken((c) => {
+            //         cancelAxios = c
+            //     }),
+            // }
             )
 
             .then((response) => {
@@ -129,9 +124,9 @@ export default function SimpleContainer() {
 
         getData()
 
-        return () => {
-            cancelAxios()
-        }
+        // return () => {
+        //     cancelAxios()
+        // }
     }, [lonAndLat])
 
 
@@ -140,7 +135,6 @@ export default function SimpleContainer() {
         {/* <OutlinedCard /> */}
         {/* Card Container */}
         <div style={{width: "100%", margin: "20px 0"}}>
-           {/* <SelectSmall></SelectSmall> */}
            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                  <InputLabel id="demo-select-small-label">City</InputLabel>
                  <Select
@@ -176,8 +170,7 @@ export default function SimpleContainer() {
                 {/* Top */}
                 <div style={{display: "flex", justifyContent: "space-around", marginTop: "25px", alignItems: "center"}}>
                     {/* Left */}
-                    {/* <img src="/img/sun.png"></img> */}
-                    <img src={seasons} style={{width: "30%", height: "30%", alignItems: "center"}}></img>
+                    <img src={seasons} style={{width: "30%", height: "30%", alignItems: "center"}} alt='seasons'></img>
                     
                     {/* Left */}
                     {/* Right */}
@@ -186,7 +179,7 @@ export default function SimpleContainer() {
                             <Typography variant="h1">{weather.temp}</Typography>
                             <div>
                                 {weather.icon ? (
-                                    <img src={weather.icon}/>
+                                    <img src={weather.icon} alt='weather'/>
                                 ) : (
                                     <CloudIcon style={{fontSize: "200px"}}/>
                                 )}
